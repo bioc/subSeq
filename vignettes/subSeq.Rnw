@@ -23,7 +23,7 @@ foo <- packageDescription("subSeq")
 @
 
 \title{subSeq Package Vignette (Version \Sexpr{foo$Version})}
-\author{David G. Robinson}
+\author{David G. Robinson and John D. Storey}
 \maketitle
 
 \tableofcontents
