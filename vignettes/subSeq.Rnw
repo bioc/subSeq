@@ -232,12 +232,12 @@ All of these are possible, as \texttt{subSeq} stores the random seed used for th
 
 \subsection{Adding Methods or Depths}
 
-If you already have some methods performed (as we do in \texttt{subsamples}), we may want to add additional methods. For example you might want to analyze the same depths with the edgeR.glm method. To do this, use the \texttt{getSeed} function to retrieve the random seed from the subsamples results, and then provide that seed to the \texttt{subsample} function:
+If you already have some methods performed (as we do in \texttt{subsamples}), we may want to add additional methods. For example you might want to analyze the same depths with the voom method. To do this, use the \texttt{getSeed} function to retrieve the random seed from the subsamples results, and then provide that seed to the \texttt{subsample} function:
 
 <<subsamples_more, dependson="subSeq_example">>=
 seed = getSeed(subsamples)
 
-subsamples.more = subsample(hammer.counts, proportions, method=c("edgeR.glm"), mm=model.matrix(~ hammer.design$protocol), seed=seed)
+subsamples.more = subsample(hammer.counts, proportions, method=c("voomLimma"), mm=model.matrix(~ hammer.design$protocol), seed=seed)
 @
 
 After that, you can combine the two objects using \texttt{combineSubsamples}:
