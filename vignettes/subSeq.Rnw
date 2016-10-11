@@ -237,7 +237,7 @@ If you already have some methods performed (as we do in \texttt{subsamples}), we
 <<subsamples_more, dependson="subSeq_example">>=
 seed = getSeed(subsamples)
 
-subsamples.more = subsample(hammer.counts, proportions, method=c("voomLimma"), mm=model.matrix(~ hammer.design$protocol), seed=seed)
+subsamples.more = subsample(hammer.counts, proportions, method=c("voomLimma"), treatment =hammer.design$protocol, seed=seed)
 @
 
 After that, you can combine the two objects using \texttt{combineSubsamples}:
