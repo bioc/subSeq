@@ -45,12 +45,15 @@ voomLimma <-
 
 DESeq2 <-
     function(count.matrix, treatment) {
+      # Fix for new DESeq2 update (doesn't allow spaces)
+        treatment <- as.factor(gsub(" ", "_", treatment))
         dds = DESeq2::DESeqDataSetFromMatrix(countData = count.matrix,
                                      colData = data.frame(treatment=treatment),
                                      design = ~ treatment)
         dds = DESeq2::estimateSizeFactors(dds)
         dds = DESeq2::estimateDispersions(dds, quiet=TRUE)
         dds = DESeq2::nbinomWaldTest(dds, quiet=TRUE)
+
         # converting a DataFrame to a data frame requires a little trick:
         convert.df = selectMethod("as.data.frame", "DataFrame")
         ret = convert.df(DESeq2::results(dds)[c("log2FoldChange", "pvalue")])
@@ -65,7 +68,7 @@ DEXSeq <-
         ecs = DEXSeq::estimateSizeFactors(ecs)
         ecs = DEXSeq::estimateDispersions(ecs, fitType='local')
         ecs = DEXSeq::testForDEU(ecs)
-        
+
         ecs = DEXSeq::estimateExonFoldChanges(ecs)
         result = as.data.table(as.data.frame(DEXSeq::DEXSeqResults(ecs)))
 
