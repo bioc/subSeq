@@ -45,8 +45,6 @@ voomLimma <-
 
 DESeq2 <-
     function(count.matrix, treatment) {
-      # Fix for new DESeq2 update (doesn't allow spaces)
-        treatment <- as.factor(gsub(" ", "_", treatment))
         dds = DESeq2::DESeqDataSetFromMatrix(countData = count.matrix,
                                      colData = data.frame(treatment=treatment),
                                      design = ~ treatment)
