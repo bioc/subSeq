@@ -20,8 +20,9 @@ Installation
 
 First install the Bioconductor dependencies:
 
-    source("http://bioconductor.org/biocLite.R")
-    biocLite(c("limma", "edgeR", "DESeq2", "DEXSeq", "pasilla"))
+    if (!requireNamespace("BiocManager", quietly=TRUE))
+        install.packages("BiocManager")
+    BiocManager::install(c("limma", "edgeR", "DESeq2", "DEXSeq", "pasilla"))
 
 Then install the [devtools](https://github.com/hadley/devtools) package, and use it to install the [qvalue 2.0](https://github.com/StoreyLab/qvalue) and subSeq packages. 
 
