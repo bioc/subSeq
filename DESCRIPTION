@@ -1,11 +1,11 @@
 Package: subSeq
 Type: Package
 Title: Subsampling of high-throughput sequencing count data
-Version: 1.12.0
+Version: 1.12.1
 Author: David Robinson, John D. Storey, with contributions from Andrew J. Bass
 Maintainer: Andrew J. Bass <ajbass@princeton.edu>, John D. Storey
  <jstorey@princeton.edu>
-biocViews: Sequencing, Transcription, RNASeq, GeneExpression,
+biocViews: ImmunoOncology, Sequencing, Transcription, RNASeq, GeneExpression,
         DifferentialExpression
 Description: Subsampling of high throughput sequencing count data for use in
     experiment design and analysis.
